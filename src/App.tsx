@@ -1,24 +1,21 @@
 import { useState } from 'react'
 import React from 'react'
-
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Dashboard from './pages/Dashboard.tsx';
+import LoginPage from './pages/LoginPage.tsx';
+import SignUp from './pages/SignUp.tsx';
+import Responses from './pages/Responses.tsx';
 function App() {
   
   return (
-    <div>
-      <h1>test</h1>
-      <div className="grid grid-cols-10 gap-2">
-        <div className="bg-sky-50 aspect-square">a</div>
-        <div className="bg-sky-100 aspect-square">b</div>
-        <div className="bg-sky-200 aspect-square">c</div>
-        <div className="bg-sky-300 aspect-square"></div>
-        <div className="bg-sky-400 aspect-square"></div>
-        <div className="bg-sky-500 aspect-square"></div>
-        <div className="bg-sky-600 aspect-square"></div>
-        <div className="bg-sky-700 aspect-square"></div>
-        <div className="bg-sky-800 aspect-square"></div>
-        <div className="bg-sky-900 aspect-square"></div>
-      </div>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route exact path='/' element={<LoginPage />} />
+        <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/signup' element={<SignUp/>} />
+        <Route path='/myresponses' element={<Responses/>} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
