@@ -22,7 +22,7 @@ const loginController: LoginController = {
       const text = `SELECT * FROM Users WHERE username = $1 AND password = $2`;
       const result = await query(text, params);
       // console.log('THIS IS RESULT --------->', result)
-      if (result.rows[1]) {
+      if (result.rows[0]) {
         res.locals.user = result.rows[0].id;
         console.log('THIS IS RES.LOCALS.USER', res.locals.user);
         return next();
