@@ -1,6 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
 import { query } from '../database/db';
-//import questions from '../questions'
 
 /**
  * @description middleware for handling question/response events such as saving responses and retrieving questions
