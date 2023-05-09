@@ -29,7 +29,7 @@ const Responses = () => {
   }
 
   const responses = mockResponses;
-  const cards = [];
+  const cards:JSX.Element[] = [];
   responses.forEach( (r) => {
     if (filteredType == '' || filteredType == r.type) {
     cards.push(<QuestionResponseCard key={r.id + '|' + Math.random()} 

@@ -4,7 +4,7 @@ const QuestionBox = (props) => {
 
 
   return (
-    <div>
+    <div className='row-span-1 text-xl font-semibold'>
       {props.question ? props.question : <div />}
     </div>
   )

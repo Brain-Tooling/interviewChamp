@@ -32,7 +32,7 @@ const ResponseBox = (props: ResponseBoxProps) => {
   }
 
   return (
-    <div>
+    <div className='row-span-3'>
       <ReactQuill
         theme='snow'
         value={props.responses[props.curQuestion]}

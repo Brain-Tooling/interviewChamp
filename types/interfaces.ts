@@ -11,6 +11,7 @@ export interface NavBarItem {
 
 export interface NavBarProps {
   navBarData: NavBarItem[]  //TODO: array
+  setCurType?: void
 }
 
 export interface ResponseBoxProps {
@@ -26,4 +27,10 @@ export interface DashboardProps {
   setCurQuestion: React.Dispatch<React.SetStateAction<number>>,
   responses: object,
   setResponses: React.Dispatch<React.SetStateAction<object>>,
+}
+
+export interface QuestionResponseCardProps {
+  question: string,
+  response: string,
+  type: string
 }
