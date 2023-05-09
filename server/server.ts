@@ -22,7 +22,7 @@ app.use(express.json());
 app.use('/login', loginRouter);
 
 //Handles route to oauthRouter
-app.use('/oauth', oauthRouter);
+app.use('/auth', oauthRouter);
 
 app.get("/", (_req: Request, res: Response) => {
     return res.send("Reached endpoint")
