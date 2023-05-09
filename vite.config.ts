@@ -20,4 +20,18 @@ export default defineConfig({
     require('postcss-flexbugs-fixes'),
     require('postcss-preset-env')
   ],
+  server: {
+    host: true,
+    port: 3000,
+    proxy: {
+      '/qr': {
+        target: 'http://localhost:5001',
+        changeOrigin: true
+      },
+      '/qr/getQuestions': {
+        target: 'http://localhost:5001',
+        changeOrigin: true
+      }
+    }
+}
 })

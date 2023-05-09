@@ -40,8 +40,9 @@ const Dashboard: React.FC = () => {
   }, [curType])
 
   useEffect( () => {
-    fetch('http://localhost:5001/qr/getQuestions/React')
-    .then(data => console.log(data));
+    fetch('qr/getQuestions/React')
+    .then(response => response.json())
+    .then(data => console.log(data))
   }, [])
 
   return (
