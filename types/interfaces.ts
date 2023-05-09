@@ -12,3 +12,18 @@ export interface NavBarItem {
 export interface NavBarProps {
   navBarData: NavBarItem[]  //TODO: array
 }
+
+export interface ResponseBoxProps {
+  responses: object,
+  curQuestion: number,
+  setResponses: React.Dispatch<React.SetStateAction<object>>
+}
+
+export interface DashboardProps {
+  questions: object,
+  setQuestions: React.Dispatch<React.SetStateAction<object>>,
+  curQuestion: number,
+  setCurQuestion: React.Dispatch<React.SetStateAction<number>>,
+  responses: object,
+  setResponses: React.Dispatch<React.SetStateAction<object>>,
+}
