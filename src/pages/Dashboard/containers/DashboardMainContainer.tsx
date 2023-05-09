@@ -4,6 +4,7 @@ import ResponseBox from "../../../components/ResponseBox";
 import LeftArrow from '../../../assets/arrow-left-svgrepo-com.svg'
 import RightArrow from '../../../assets/arrow-right-svgrepo-com.svg'
 import { DashboardProps } from "../../../../types/interfaces";
+import { Link } from 'react-router-dom';
 
 const DashboardMainContainer = (props:DashboardProps) => {
   
@@ -22,12 +23,24 @@ const DashboardMainContainer = (props:DashboardProps) => {
   }
 
   useEffect(() => {
-    console.log('cur question has changed', props.curQuestion)
+    //console.log('cur question has changed', props.curQuestion)
   }, [props.curQuestion]);
 
+  if (props.curQuestion < 0) {
+    
+    toggleQuestion(true);
+  }
 
   return (
     <div className="p-4 sm:ml-64">
+      <div className='flex justify-end'>
+        <Link to="/myresponses">
+          <button className="px-3 py-2 text-white bg-gray-500 rounded-lg shadow-sm hover:bg-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:ring-offset-1 sm:text-sm"
+           >
+           Responses
+          </button>
+        </Link>
+      </div>
       <div className='p-4 border-2 border-gray-200 border-dashed rounded-lg
          dark:border-gray-700 grid grid-cols-8 gap-4'>
         <div>

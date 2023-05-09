@@ -2,9 +2,6 @@ import React from "react"
 import NavBarOption from './NavBarOption'
 import { NavBarProps, NavBarItem } from "../../types/interfaces";
 
-//TODO: replace
-const mockNavBarData = [{id: 0,name:'React'},{id: 1,name:'Redux'},{id: 2,name:'Node'}]
-
 /*
     The NavBar component accepts a list of clickable types for filtering the dashboard.
     The following properties are supported:
@@ -15,10 +12,13 @@ const mockNavBarData = [{id: 0,name:'React'},{id: 1,name:'Redux'},{id: 2,name:'N
 */
 const NavBar = (props: NavBarProps) => {
   
-  const navBarOptions = mockNavBarData; //TODO: use props instead of mockNavBarData once we can rely on it
+  const navBarOptions = props.navBarData;
+  if (!navBarOptions) return (
+    <div>Can't load nav bar</div>
+  )
   const opts: JSX.Element[] = [];
   navBarOptions.forEach( (o: NavBarItem) => {
-    opts.push(<NavBarOption key={o.name + Math.random()} label={o.name} onClick={() => {console.log('click')}} />);
+    opts.push(<NavBarOption key={o.name + Math.random()} label={o.name} onClick={() => {props.setCurType(o.name)}} />);
   })
 
   return (
