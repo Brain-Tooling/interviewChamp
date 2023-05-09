@@ -22,7 +22,16 @@ const mockNodeQs = {
   10: 'Node 3',
 }
 
-const mockNavBarData = [{id: 0,name:'React'},{id: 1,name:'Redux'},{id: 2,name:'Node'}]
+const prepQuestions = (questionsFromDB) => {
+  const result = {};
+  for (const o in questionsFromDB) {
+    result[questionsFromDB[o].id] = questionsFromDB[o].question_content;
+  }
+  console.log(result)
+  return result;
+}
+
+const mockNavBarData = ['React', 'Redux', 'Node']
 
 
 const Dashboard: React.FC = () => {
@@ -32,18 +41,20 @@ const Dashboard: React.FC = () => {
   const [questionTypes, setQuestionTypes] = useState(mockNavBarData);
   const [curType, setCurType] = useState(questionTypes[0] ? questionTypes[0] : undefined)
 
-  useEffect( () => {
-    if (curType == 'React') setQuestions(mockReactQs);
-    else if (curType == 'Redux') setQuestions(mockReduxQs);
-    else if (curType == 'Node') setQuestions(mockNodeQs);
-    setCurQuestion(-1);
-  }, [curType])
+  
 
   useEffect( () => {
-    fetch('qr/getQuestions/React')
+    let ct:string = curType;
+    console.log('Getting type ' + ct)
+    fetch('qr/getQuestions/' + ct)
     .then(response => response.json())
-    .then(data => console.log(data))
-  }, [])
+    .then(data => {
+      //TODO: update questions
+      console.log(data)
+      setQuestions(prepQuestions(data));
+      setCurQuestion(-1);
+    })
+  }, [curType])
 
   return (
     <div>
