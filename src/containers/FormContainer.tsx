@@ -15,8 +15,8 @@ const FormContainer: React.FC<SelectProps> = ( { formType } ) => {
       Form Container
       {form}
       <p className="text-center text-gray-500 text-xs">
-    &copy;2023 Dragon Corp. All rights reserved.
-  </p>
+        &copy;2023 Dragon Corp. All rights reserved.
+      </p>
     </div>
   )
 };
