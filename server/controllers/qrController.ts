@@ -1,23 +1,23 @@
 import { Request, Response, NextFunction } from 'express';
 import {query} from '../database/db';
-import questions from '.../questions'
+//import questions from '../questions'
 
-/**
- * @description middleware for handling question/response events such as loading questions into the db, saving responses, and retrieving questions
- */
-interface qrController {
-getQuestions: (
-    req: Request,
-    res: Response,
-    next: NextFunction
-  ) => void;
+// /**
+//  * @description middleware for handling question/response events such as loading questions into the db, saving responses, and retrieving questions
+//  */
+// interface qrController {
+// getQuestions: (
+//     req: Request,
+//     res: Response,
+//     next: NextFunction
+//   ) => void;
 
-}
+// }
 
-const qrController: qrController = {
+// const qrController: qrController = {
 
-   getQuestions:
+//    getQuestions: 
 
-}
+// }
 
-export default qrController;
+// export default qrController;

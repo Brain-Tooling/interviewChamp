@@ -1,16 +1,22 @@
 import express, { Request, Response } from "express";
-import qrRouter from './routes/qrRouter';
+//import qrRouter from './routes/qrRouter';
 import loginRouter from './routes/loginRouter';
 import oauthRouter from './routes/oauthRouter';
+import dotenv from 'dotenv';
+dotenv.config();
+
+const apiKey = process.env.apiKey;
+const secretKey = process.env.secretKey;
+const PORT = 5001 || process.env.PORT;
 
 const app = express();
-const PORT = 5001;
 
+app.set('view engine', 'ejs');
 // Adds body parser
 app.use(express.json());
 
 //Handles route to qrRouter
-app.use('/qr', qrRouter);
+//app.use('/qr', qrRouter);
 
 //Handles route to loginRouter
 app.use('/login', loginRouter);
@@ -20,10 +26,6 @@ app.use('/oauth', oauthRouter);
 
 app.get("/", (_req: Request, res: Response) => {
     return res.send("Reached endpoint")
-});
-
-app.listen(PORT, (): void => {
-    console.log("listening on port ", PORT )
 });
 
 //Creates type for error handler
