@@ -4,7 +4,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Dashboard from './pages/Dashboard/Dashboard.js';
 import LoginPage from './pages/login/LoginPage';
 import SignUp from './pages/SignUp';
-import Responses from './pages/Responses';
+import Responses from './pages/Responses/Responses.js';
+
 function App() {
   
   return (
