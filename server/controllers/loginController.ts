@@ -23,10 +23,15 @@ const loginController: LoginController = {
       const result = await query(text, params);
       // console.log('THIS IS RESULT --------->', result)
       if (result.rows[0]) {
+        res.locals.exist = true
         res.locals.user = result.rows[0].id;
         console.log('THIS IS RES.LOCALS.USER', res.locals.user);
         return next();
-      } else {console.log("does nto exist")}
+      } else {
+        res.locals.exist = false
+        console.log("does not exist")
+        return next()
+      }
     } catch (err) {
       next({
         log: "Express error handler caught in checkLogin controller",
