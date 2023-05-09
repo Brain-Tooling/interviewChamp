@@ -4,4 +4,3 @@ export interface FormProps {
   children?: React.ReactNode;
 }
 
-export interface otherProps
