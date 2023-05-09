@@ -7,7 +7,6 @@ const NavBarOption = (props) => {
       >{props.label}</button> 
                
                
-      
   )
 };
 

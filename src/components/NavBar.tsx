@@ -1,5 +1,6 @@
 import React from "react"
-import NavBarOption from './NavBarOption.tsx'
+import NavBarOption from './NavBarOption'
+import { NavBarProps, NavBarItem } from "../../types/interfaces";
 
 //TODO: replace
 const mockNavBarData = [{id: 0,name:'React'},{id: 1,name:'Redux'},{id: 2,name:'Node'}]
@@ -12,19 +13,13 @@ const mockNavBarData = [{id: 0,name:'React'},{id: 1,name:'Redux'},{id: 2,name:'N
             id (number)
             name (string)
 */
-const NavBar = (props) => {
+const NavBar = (props: NavBarProps) => {
   
-  const navBarOptions = mockNavBarData;
-  const opts = [];
-  navBarOptions.forEach( (o) => {
-    opts.push(<NavBarOption label={o.name} onClick={() => {console.log('click')}} />);
+  const navBarOptions = mockNavBarData; //TODO: use props instead of mockNavBarData once we can rely on it
+  const opts: JSX.Element[] = [];
+  navBarOptions.forEach( (o: NavBarItem) => {
+    opts.push(<NavBarOption key={o.name + Math.random()} label={o.name} onClick={() => {console.log('click')}} />);
   })
-
-/*
-absolute left-0 top-0 z-[1035] h-full w-60 -translate-x-full 
-                    overflow-hidden bg-white shadow-[0_4px_12px_0_rgba(0,0,0,0.07),_0_2px_4px_rgba(0,0,0,0.05)] 
-                    data-[te-sidenav-hidden='false']:translate-x-0 dark:bg-zinc-800"
-*/
 
   return (
     <aside id="default-sidebar" className="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">

@@ -4,6 +4,11 @@ export interface FormProps {
   children?: React.ReactNode;
 }
 
+export interface NavBarItem {
+  id: number,
+  name: string
+}
+
 export interface NavBarProps {
-  navBarData: string  //TODO: array
+  navBarData: NavBarItem[]  //TODO: array
 }
