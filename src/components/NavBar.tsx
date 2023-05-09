@@ -5,12 +5,12 @@ import NavBarOption from './NavBarOption.tsx'
 const mockNavBarData = [{id: 0,name:'React'},{id: 1,name:'Redux'},{id: 2,name:'Node'}]
 
 /*
-    The NavBar component is 
+    The NavBar component accepts a list of clickable types for filtering the dashboard.
     The following properties are supported:
     navBarData (array)
         Each item in the array is an object with:
-            id: 
-            name: 
+            id (number)
+            name (string)
 */
 const NavBar = (props) => {
   

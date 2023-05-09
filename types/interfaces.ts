@@ -4,4 +4,6 @@ export interface FormProps {
   children?: React.ReactNode;
 }
 
-export interface otherProps
+export interface NavBarProps {
+  navBarData: string  //TODO: array
+}
