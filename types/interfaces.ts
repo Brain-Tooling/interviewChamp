@@ -4,6 +4,22 @@ export interface FormProps {
   children?: React.ReactNode;
 }
 
+export interface SignUpFormValues {
+  firstName: string;
+  lastName: string;
+  username: string;
+  email: string;
+  password: string;
+}
+
+export interface LogInFormValues {
+  username: string;
+  password: string;
+}
+
+export interface LogInProps {
+  setLoginValues: (values: LogInFormValues) => void;
+}
 export interface NavBarItem {
   id: number,
   name: string
@@ -33,4 +49,7 @@ export interface QuestionResponseCardProps {
   question: string,
   response: string,
   type: string
+}
+export interface SignUpProps {
+  setLoginValues: (values: SignUpFormValues) => void;
 }
