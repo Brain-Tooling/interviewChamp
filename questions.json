@@ -1,24 +1,24 @@
 [
-    {
-      "category": "React",
-      "questions": [
-        {
-          "content": "What is batching?"
-        },
-        {
-          "content": ""
-        }
-      ]
-    },
-    {
-      "category": "javascript",
-      "questions": [
-        {
-          "content": "What is a closure in JavaScript?"
-        },
-        {
-          "content": "What is the difference between let and var in JavaScript?"
-        }
-      ]
-    }
-  ]
+  {
+    "category": "react",
+    "questions": [
+      {
+        "content": ""
+      },
+      {
+        "content": ""
+      }
+    ]
+  },
+  {
+    "category": "javascript",
+    "questions": [
+      {
+        "content": "What is a closure in JavaScript?"
+      },
+      {
+        "content": "What is the difference between let and var in JavaScript?"
+      }
+    ]
+  }
+]

@@ -2,13 +2,33 @@
  * @module qr router
  * @description handle all routes for question and response queries
  */
-// import { Request, Response, Router } from 'express';
-// import qrController from '../controllers/qrController';
+import { Request, Response, Router } from 'express';
+import qrController from '../controllers/qrController';
 
-// const router = Router();
+const router = Router();
 
-// router.get('/setUp', qrController.buildDb, (req: Request, res: Response): Response => {
-//     return res.status(201).json({response: 'questions are loaded'});
-//   });
+router.get(
+  '/getQuestions/:category',
+  qrController.getQuestions,
+  (req: Request, res: Response): Response => {
+    return res.status(200).json(res.locals.questions);
+  }
+);
 
-//   export default router;
+router.post(
+  '/storeResponse',
+  qrController.storeResponse,
+  (req: Request, res: Response): Response => {
+    return res.status(200).json('Response stored');
+  }
+);
+
+router.get(
+  '/getResponses/:user_id/:category_name',
+  qrController.getResponses,
+  (req: Request, res: Response): Response => {
+    return res.status(200).json(res.locals.responses);
+  }
+);
+
+export default router;
