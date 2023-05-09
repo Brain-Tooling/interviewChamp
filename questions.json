@@ -1,0 +1,24 @@
+[
+  {
+    "category": "react",
+    "questions": [
+      {
+        "content": ""
+      },
+      {
+        "content": ""
+      }
+    ]
+  },
+  {
+    "category": "javascript",
+    "questions": [
+      {
+        "content": "What is a closure in JavaScript?"
+      },
+      {
+        "content": "What is the difference between let and var in JavaScript?"
+      }
+    ]
+  }
+]
