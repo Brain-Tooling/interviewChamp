@@ -45,6 +45,7 @@ passport.use(
         "444805898561-boptbjpse6tfcfq1p6joiq3qnkluk44h.apps.googleusercontent.com",
       clientSecret: "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",
       callbackURL: "http://localhost:5001/auth/google/callback",
+      proxy:true,
     },
     function (
       accessToken: string,

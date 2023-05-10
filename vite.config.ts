@@ -35,7 +35,19 @@ export default defineConfig({
       '/qr/storeResponse': {
         target: 'http://localhost:5001',
         changeOrigin: true
-      }
+      },
+      '/auth': {
+        target: 'http://localhost:5001',
+        changeOrigin: true
+      },
+      '/auth/google': {
+        target: 'http://localhost:5001',
+        changeOrigin: true
+      },
+      '/auth/google/callback': {
+        target: 'http://localhost:5001',
+        changeOrigin: true
+      },
     }
-}
+  }
 })
