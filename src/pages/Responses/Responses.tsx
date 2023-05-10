@@ -1,7 +1,9 @@
-import React,{useState} from "react"
+import React,{useState, useEffect} from "react"
 import QuestionResponseCard from "../../components/QuestionResponseCard";
 import { Link } from "react-router-dom";
 import NavBar from "../../components/NavBar";
+import Cookies from 'js-cookie';
+
 
 const mockResponses = [
   {id: 0, type: 'React', question: 'What are the features of React?', response: 'React is a popular JavaScript library used for building user interfaces. '},
@@ -17,18 +19,39 @@ const mockResponses = [
   {id: 10, type: 'Node', question: 'Node 3', response: ''}  
 ]
 
-const questionTypes = [{id: 0,name:'React'},{id: 1,name:'Redux'},{id: 2,name:'Node'}]
+const questionTypes = ['React','Redux','Node']
 
 
 const Responses = () => {
   const [filteredType, setFilteredType] = useState('React');
+  const [responses, setResponses] = useState([])
+
+  useEffect( () => {
+    let userID = Cookies.get('user');   
+    if (!userID) console.log('Warning: unable to find user id, can\'t show responses...');
+
+    fetch('http://localhost:5001/qr/getResponses/' + userID + '/' + filteredType)
+    .then(result => result.json())
+    .then(data => {
+      const newResponses = [];
+      for (let d in data) {
+        const r = {};
+        r.id = data[d].id;
+        r.question = data[d].question_content;
+        r.response = data[d].response_content;
+        r.type = filteredType;
+        newResponses.push(r);
+      }
+      setResponses(newResponses);
+    })
+  },[filteredType])
 
   const handleNavClick = (s) => {
     if (s != filteredType) setFilteredType(s);
     else setFilteredType('');
   }
 
-  const responses = mockResponses;
+
   const cards:JSX.Element[] = [];
   responses.forEach( (r) => {
     if (filteredType == '' || filteredType == r.type) {

@@ -31,6 +31,10 @@ export default defineConfig({
       '/qr/getQuestions': {
         target: 'http://localhost:5001',
         changeOrigin: true
+      },
+      '/qr/storeResponse': {
+        target: 'http://localhost:5001',
+        changeOrigin: true
       }
     }
 }
