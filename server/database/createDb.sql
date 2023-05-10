@@ -16,7 +16,8 @@ CREATE TABLE IF NOT EXISTS Responses (
     id SERIAL PRIMARY KEY,
     user_id INTEGER REFERENCES Users(id),
     question_id INTEGER REFERENCES Questions(id),
-    response_content TEXT NOT NULL
+    response_content TEXT NOT NULL,
+    CONSTRAINT unique_user_question_response UNIQUE (user_id, question_id)
 );
 
 ALTER TABLE public.responses ADD CONSTRAINT responses_un UNIQUE (user_id,question_id);

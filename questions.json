@@ -3,11 +3,41 @@
     "category": "react",
     "questions": [
       {
-        "content": ""
+        "content": "What is React and what problem does it solve?"
       },
+      { "content": "What are the key features of React?" },
+      { "content": "What is JSX and how is it different from HTML?" },
       {
-        "content": ""
-      }
+        "content": "Explain the concept of Virtual DOM and its benefits in React."
+      },
+      { "content": "What is the difference between state and props in React?" },
+      { "content": "How would you explain the lifecycle methods in React?" },
+      { "content": "What is the significance of the key prop in React?" },
+      {
+        "content": "Explain the difference between controlled and uncontrolled components in React."
+      },
+      { "content": "What is the purpose of the render method in React?" },
+      {
+        "content": "How does React compare to other JavaScript frameworks like Angular and Vue?"
+      },
+      { "content": "Explain the concept of React Hooks and how they work." },
+      {
+        "content": "What are the advantages of using React Native for mobile app development?"
+      },
+      { "content": "How do you optimize performance in a React app?" },
+      {
+        "content": "What are Higher Order Components (HOCs) in React and when would you use them?"
+      },
+      { "content": "How would you integrate Redux with React?" },
+      { "content": "How do you handle errors in React?" },
+      {
+        "content": "What are some best practices for testing React components?"
+      },
+      { "content": "Explain the purpose of the useContext hook in React." },
+      {
+        "content": "What is Server-Side Rendering (SSR) in React and why is it important?"
+      },
+      { "content": "How would you implement lazy loading in React?" }
     ]
   },
   {
@@ -18,6 +48,112 @@
       },
       {
         "content": "What is the difference between let and var in JavaScript?"
+      },
+      {
+        "content": "Explain event delegation in javascript"
+      },
+      {
+        "content": "Explain how prototypal inheritance works in javascript"
+      },
+      {
+        "content": "What's the difference between a variable that is: null, undefined or undeclared in javascript?"
+      },
+      {
+        "content": "What language constructions do you use for iterating over object properties and array items in javascript?"
+      },
+      {
+        "content": "Can you describe the main difference between the Array.forEach() loop and Array.map() methods and why you would pick one versus the other in javascript?"
+      },
+      {
+        "content": "What's a typical use case for anonymous functions in javascript?"
+      },
+      {
+        "content": "What's the difference between host objects and native objects in javascript?"
+      },
+      {
+        "content": "Explain Function.prototype.bind in javascript"
+      },
+      {
+        "content": "Explain hoisting in javascript"
+      },
+      {
+        "content": "Explain the difference between synchronous and asynchronous functions in javascript"
+      }
+    ]
+  },
+  {
+    "category": "redux",
+    "questions": [
+      { "content": "What is Redux and what problem does it solve?" },
+      { "content": "How does Redux differ from Flux?" },
+      { "content": "What are the core principles of Redux?" },
+      { "content": "What is a store in Redux and what does it contain?" },
+      {
+        "content": "What is an action in Redux and what purpose does it serve?"
+      },
+      { "content": "How do reducers work in Redux?" },
+      { "content": "What is the role of middleware in Redux?" },
+      { "content": "How does the connect function work in Redux?" },
+      { "content": "Explain the purpose of selectors in Redux." },
+      {
+        "content": "What is the difference between synchronous and asynchronous actions in Redux?"
+      },
+      { "content": "What is Redux Thunk and when would you use it?" },
+      {
+        "content": "Explain the purpose of the combineReducers function in Redux."
+      },
+      { "content": "How do you handle side effects in Redux?" },
+      { "content": "How would you integrate Redux with React?" },
+      { "content": "What is Redux DevTools and how do you use it?" },
+      { "content": "How would you handle errors in Redux?" },
+      {
+        "content": "What are some best practices for testing Redux applications?"
+      },
+      { "content": "Explain the concept of Redux-Saga and how it works." },
+      { "content": "What is the purpose of the reselect library in Redux?" },
+      {
+        "content": "How would you optimize performance in a Redux application?"
+      }
+    ]
+  },
+  {
+    "category": "node",
+    "questions": [
+      { "content": "What is Node.js and what problem does it solve?" },
+      { "content": "What are the key features of Node.js?" },
+      { "content": "How does Node.js handle asynchronous operations?" },
+      {
+        "content": "What is the difference between Node.js and other server-side languages like PHP and Ruby?"
+      },
+      { "content": "What is an event loop in Node.js and how does it work?" },
+      { "content": "What are modules in Node.js and how do you use them?" },
+      { "content": "Explain the purpose of the require function in Node.js." },
+      { "content": "How would you handle errors in Node.js?" },
+      { "content": "What is the role of streams in Node.js?" },
+      { "content": "How does Node.js handle concurrency?" },
+      {
+        "content": "Explain the concept of middleware in Node.js and how it works."
+      },
+      { "content": "What is the difference between Express.js and Node.js?" },
+      {
+        "content": "How would you implement authentication in a Node.js application?"
+      },
+      {
+        "content": "What is the purpose of the Node Package Manager (npm) and how do you use it?"
+      },
+      {
+        "content": "How would you implement caching in a Node.js application?"
+      },
+      {
+        "content": "What are some best practices for testing Node.js applications?"
+      },
+      { "content": "Explain the purpose of the cluster module in Node.js." },
+      {
+        "content": "How would you handle file uploads in a Node.js application?"
+      },
+      { "content": "What is the purpose of the process object in Node.js?" },
+      {
+        "content": "How would you optimize performance in a Node.js application?"
       }
     ]
   }
