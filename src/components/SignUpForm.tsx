@@ -21,7 +21,7 @@ const SignUpForm: React.FC = () => {
     console.log(formValues)
     try {
       console.log('Login Form data:', formValues);
-      const response = await fetch(`/login/signup`, {
+      const response = await fetch(`http://localhost:5001/login/signup`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -113,7 +113,7 @@ const SignUpForm: React.FC = () => {
             </button>
             <button 
               className="w-full px-3 py-2 text-white bg-blue-500 rounded-lg shadow-sm hover:bg-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:ring-offset-1 sm:text-sm"
-              onClick={() => navigate('/login')}
+              onClick={() => navigate('/')}
             >
               Log In
             </button>
