@@ -67,8 +67,10 @@ const qrController: qrController = {
       }
 
       // Insert response into Responses table
-      const insertResponseQuery =
-        'INSERT INTO Responses (user_id, question_id, response_content) VALUES ($1, $2, $3)';
+      const insertResponseQuery = `INSERT INTO Responses (user_id, question_id, response_content)
+        VALUES ($1, $2, $3)
+        ON CONFLICT (user_id, question_id)
+        DO UPDATE SET response_content = EXCLUDED.response_content`;
       const insertResponseValues = [user_id, question_id, response_content];
       await query(insertResponseQuery, insertResponseValues);
 
