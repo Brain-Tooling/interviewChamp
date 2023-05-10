@@ -51,7 +51,12 @@ const DashboardMainContainer = (props:DashboardProps) => {
         </div>
         <div className='col-span-6 rounded overflow-hidden shadow-lg p-4 grid grid-rows-4'>
           <QuestionBox question={props.questions ? props.questions[props.curQuestion]: ''} num={props.curQuestion} answered={props.responses[props.curQuestion] ? true : false}/>
-          <ResponseBox responses={props.responses} curQuestion={props.curQuestion} setResponses={props.setResponses} next={toggleQuestion}/>
+          <ResponseBox responses={props.responses} curQuestion={props.curQuestion} 
+                      setResponses={props.setResponses} next={toggleQuestion} 
+                      question={props.questions ? props.questions[props.curQuestion]: ''}
+                      aiGeneratedResponse={props.aiGeneratedResponse}
+                      setAiGeneratedResponse={props.setAiGeneratedResponse}
+                      />
         </div>
         <div className='flex flex-col items-center'>
           <button className='px-3 py-2 text-white bg-green-600 rounded-lg shadow-sm hover:bg-green-400 focus:outline-none focus:ring-1 focus:ring-green-400 focus:ring-offset-1 sm:text-sm'
