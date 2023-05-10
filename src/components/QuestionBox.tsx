@@ -1,6 +1,7 @@
 import React from "react"
+import { QuestionBoxProps } from "../../types/interfaces";
 
-const QuestionBox = (props) => {
+const QuestionBox = (props: QuestionBoxProps) => {
 
 
   return (

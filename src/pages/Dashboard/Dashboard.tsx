@@ -44,7 +44,7 @@ const Dashboard: React.FC = () => {
   
 
   useEffect( () => {
-    let ct:string = curType;
+    const ct:string = curType;
     console.log('Getting type ' + ct)
     fetch('qr/getQuestions/' + ct)
     .then(response => response.json())

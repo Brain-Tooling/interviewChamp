@@ -53,3 +53,8 @@ export interface QuestionResponseCardProps {
 export interface SignUpProps {
   setLoginValues: (values: SignUpFormValues) => void;
 }
+
+export interface QuestionBoxProps {
+  question: string,
+  num: number
+}

@@ -28,6 +28,19 @@ const ResponseBox = (props: ResponseBoxProps) => {
       const newResponses = Object.assign(props.responses);
       newResponses[props.curQuestion] = response;
       props.setResponses(newResponses);
+      fetch('http://localhost:5001/qr/storeResponse', {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json'
+        },
+        body: JSON.stringify({
+          'user_id': 2, 
+          'question_id':props.curQuestion, 
+          'response_content':response
+        })
+      })
+      .then(result => result.json())
+      .then(data => console.log(data))
     }
   }
 
