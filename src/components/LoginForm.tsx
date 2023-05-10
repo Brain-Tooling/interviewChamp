@@ -40,12 +40,14 @@ const LoginForm: React.FC = () => {
       });
       const data = await response.json();
       console.log('THIS IS DATA', data);
-      if (data.exist === true) navigate('/dashboard');
-      else { alert('Incorrect login credentials')};
+      if (data.exist === true) {
+        document.cookie = `user=${data.user}`
+        navigate('/dashboard');
+      }
+      else { alert('Incorrect login credentials')}
     } catch (error) {
       console.log(error);
     }
-    
   }
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
