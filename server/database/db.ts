@@ -1,7 +1,10 @@
 import { Pool } from 'pg';
+import DE from 'dotenv';
+
+DE.config();
 
 const PG_URI =
-  'postgres://lgqxmgqq:ZR5NwFZPPxuOC-zvS5f-V4B4zL8NqJSW@drona.db.elephantsql.com/lgqxmgqq';
+  process.env.PG_URI;
 
 const pool = new Pool({
   connectionString: PG_URI,

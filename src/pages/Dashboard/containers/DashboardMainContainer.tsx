@@ -50,7 +50,7 @@ const DashboardMainContainer = (props:DashboardProps) => {
           </button>
         </div>
         <div className='col-span-6 rounded overflow-hidden shadow-lg p-4 grid grid-rows-4'>
-          <QuestionBox question={props.questions[props.curQuestion]}/>
+          <QuestionBox question={props.questions[props.curQuestion]} num={props.curQuestion}/>
           <ResponseBox responses={props.responses} curQuestion={props.curQuestion} setResponses={props.setResponses}/>
         </div>
         <div className='flex flex-col items-center'>

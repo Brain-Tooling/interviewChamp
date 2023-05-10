@@ -4,6 +4,8 @@ import loginRouter from './routes/loginRouter';
 import oauthRouter from './routes/oauthRouter';
 import apiRouter from './routes/apiRouter';
 import dotenv from 'dotenv';
+import cors from 'cors';
+
 dotenv.config();
 
 const apiKey = process.env.apiKey;
@@ -13,8 +15,24 @@ const PORT = 5001 || process.env.PORT;
 const app = express();
 
 app.set('view engine', 'ejs');
+
+// Adds cors
+app.use(cors());
+
 // Adds body parser
 app.use(express.json());
+
+// CORS
+app.use(function (req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept'
+  );
+  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
+  next();
+});
+
 
 //Handles route to qrRouter
 app.use('/qr', qrRouter);
