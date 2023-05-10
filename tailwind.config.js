@@ -8,6 +8,9 @@ module.exports = {
     extend: {
       colors: {
         'regal-blue': '#243c5a',
+      },
+      fontFamily: {
+        'paytone': ['Paytone+One', 'sans-serif']
       }
     },
   },

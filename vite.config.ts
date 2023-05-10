@@ -36,10 +36,18 @@ export default defineConfig({
         target: 'http://localhost:5001',
         changeOrigin: true
       },
-      '/api': {
+      '/auth': {
         target: 'http://localhost:5001',
         changeOrigin: true
-      }
+      },
+      '/auth/google': {
+        target: 'http://localhost:5001',
+        changeOrigin: true
+      },
+      '/auth/google/callback': {
+        target: 'http://localhost:5001',
+        changeOrigin: true
+      },
     }
-}
+  }
 })

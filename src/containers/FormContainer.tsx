@@ -30,8 +30,7 @@ const FormContainer: React.FC<SelectProps> = ( { formType } ) => {
     <LoginForm
     />
   return (
-    <div className="w-full max-w-sm border p-5">
-      Form Container
+    <div className="w-full max-w-sm p-5 bg-gradient-to-t from-yellow-300 to-yellow-200 rounded-md">
       {form}
       <p className="text-center text-gray-500 text-xs">
     &copy;2023 Dragon Corp. All rights reserved.
