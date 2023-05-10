@@ -21,7 +21,7 @@ const SignUpForm: React.FC = () => {
     console.log(formValues)
     try {
       console.log('Login Form data:', formValues);
-      const response = await fetch(`/login/signup`, {
+      const response = await fetch(`http://localhost:5001/login/signup`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -48,7 +48,7 @@ const SignUpForm: React.FC = () => {
   return (
     <div className="flex flex-col items-center justify-center w-full">
       
-      <div className='form-container border w-full' >
+      <div className='form-container w-full' >
         <form id='signup-form' onSubmit={handleSubmit} className='border-gray-400'>
           <div className='block mb-2 text-sm font-bold text-gray-700'>
             <input 
@@ -106,14 +106,14 @@ const SignUpForm: React.FC = () => {
               />
           </div>
           <button 
-            className="w-full px-3 py-2 mb-2 text-white bg-blue-500 rounded-lg shadow-sm hover:bg-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:ring-offset-1 sm:text-sm"
+            className="w-full px-3 py-2 mb-2 text-white bg-green-700 hover:bg-green-500 rounded-lg shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:ring-offset-1 sm:text-sm"
             type='submit'
             >
               Sign Up
             </button>
             <button 
-              className="w-full px-3 py-2 text-white bg-blue-500 rounded-lg shadow-sm hover:bg-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:ring-offset-1 sm:text-sm"
-              onClick={() => navigate('/login')}
+              className="w-full px-3 py-2 text-white bg-green-700 hover:bg-green-500 rounded-lg shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:ring-offset-1 sm:text-sm"
+              onClick={() => navigate('/')}
             >
               Log In
             </button>
