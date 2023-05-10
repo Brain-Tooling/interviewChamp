@@ -1,4 +1,4 @@
-import React,{useState} from "react"
+import React,{useState, useEffect} from "react"
 import QuestionResponseCard from "../../components/QuestionResponseCard";
 import { Link } from "react-router-dom";
 import NavBar from "../../components/NavBar";
@@ -17,19 +17,42 @@ const mockResponses = [
   {id: 10, type: 'Node', question: 'Node 3', response: ''}  
 ]
 
-const questionTypes = [{id: 0,name:'React'},{id: 1,name:'Redux'},{id: 2,name:'Node'}]
+const questionTypes = ['React','Redux','Node']
 
 
 const Responses = () => {
   const [filteredType, setFilteredType] = useState('React');
+  const [responses, setResponses] = useState([])
+
+  useEffect( () => {
+    let userID = 2; //TODO: Use real ID
+
+    fetch('http://localhost:5001/qr/getResponses/' + userID + '/' + filteredType)
+    .then(result => result.json())
+    .then(data => {
+      const newResponses = [];
+      for (let d in data) {
+        const r = {};
+        r.id = data[d].id;
+        r.question = data[d].question_content;
+        r.response = data[d].response_content;
+        r.type = filteredType;
+        newResponses.push(r);
+      }
+      console.log(newResponses);
+      setResponses(newResponses);
+    })
+  },[filteredType])
 
   const handleNavClick = (s) => {
     if (s != filteredType) setFilteredType(s);
     else setFilteredType('');
   }
 
-  const responses = mockResponses;
+  console.log('rendering page');
+
   const cards:JSX.Element[] = [];
+  console.log('rendering ' + responses.length + ' responses')
   responses.forEach( (r) => {
     if (filteredType == '' || filteredType == r.type) {
     cards.push(<QuestionResponseCard key={r.id + '|' + Math.random()} 
@@ -39,6 +62,7 @@ const Responses = () => {
                                     />)
     }
   } )
+  console.log('got ' + cards.length + 'cards')
 
   return (
     <div>
