@@ -51,7 +51,9 @@ const qrController: qrController = {
   },
   //stores a users response inside of the database
   storeResponse: async (req, res, next) => {
+    console.log('got req to store response')
     const { user_id, question_id, response_content } = req.body;
+    console.log('body is ', req.body)
 
     // Check if question exists
     const selectQuestionQuery = 'SELECT * FROM Questions WHERE id = $1';
@@ -68,7 +70,7 @@ const qrController: qrController = {
 
       // Insert response into Responses table
       const insertResponseQuery =
-        'INSERT INTO Responses (user_id, question_id, response_content) VALUES ($1, $2, $3)';
+        'INSERT INTO Responses (user_id, question_id, response_content) VALUES ($1, $2, $3) ON CONFLICT (user_id, question_id) DO UPDATE SET response_content = EXCLUDED.response_content;';
       const insertResponseValues = [user_id, question_id, response_content];
       await query(insertResponseQuery, insertResponseValues);
 
@@ -84,7 +86,7 @@ const qrController: qrController = {
 
     // Get all responses for a user for a given category
     const selectResponsesQuery = `
-      SELECT R.id, R.response_content, Q.question_content
+      SELECT R.id, R.response_content, R.question_id, Q.question_content
       FROM Responses R
       JOIN Questions Q ON Q.id = R.question_id
       JOIN Categories C ON C.id = Q.category_id
@@ -95,9 +97,10 @@ const qrController: qrController = {
     try {
       const { rows } = await query(selectResponsesQuery, selectResponsesValues);
       const response = rows.map(
-        ({ id, response_content, question_content }) => ({
+        ({ id, response_content, question_id, question_content }) => ({
           id,
           response_content,
+          question_id,
           question_content,
         })
       );

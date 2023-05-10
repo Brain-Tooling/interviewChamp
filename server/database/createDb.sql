@@ -18,3 +18,5 @@ CREATE TABLE IF NOT EXISTS Responses (
     question_id INTEGER REFERENCES Questions(id),
     response_content TEXT NOT NULL
 );
+
+ALTER TABLE public.responses ADD CONSTRAINT responses_un UNIQUE (user_id,question_id);
