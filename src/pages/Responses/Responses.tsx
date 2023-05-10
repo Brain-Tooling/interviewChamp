@@ -2,6 +2,8 @@ import React,{useState, useEffect} from "react"
 import QuestionResponseCard from "../../components/QuestionResponseCard";
 import { Link } from "react-router-dom";
 import NavBar from "../../components/NavBar";
+import Cookies from 'js-cookie';
+
 
 const mockResponses = [
   {id: 0, type: 'React', question: 'What are the features of React?', response: 'React is a popular JavaScript library used for building user interfaces. '},
@@ -25,7 +27,8 @@ const Responses = () => {
   const [responses, setResponses] = useState([])
 
   useEffect( () => {
-    let userID = 2; //TODO: Use real ID
+    let userID = Cookies.get('user');   
+    if (!userID) console.log('Warning: unable to find user id, can\'t show responses...');
 
     fetch('http://localhost:5001/qr/getResponses/' + userID + '/' + filteredType)
     .then(result => result.json())

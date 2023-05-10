@@ -2,6 +2,7 @@ import React from "react"
 import ReactQuill from "react-quill"
 import 'react-quill/dist/quill.snow.css'
 import { ResponseBoxProps } from "../../types/interfaces";
+import Cookies from 'js-cookie';
 
 
 
@@ -24,13 +25,19 @@ const ResponseBox = (props: ResponseBoxProps) => {
   ]
 
   const submit = () => {
+    const userId = Cookies.get('user');
+    if (!userId) {
+      console.log('Unable to retrieve user ID; can\'t submit')
+      return;
+    }
+
     fetch('http://localhost:5001/qr/storeResponse', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
       },
       body: JSON.stringify({
-        'user_id': 2, 
+        'user_id': userId, 
         'question_id':props.curQuestion, 
         'response_content':props.responses[props.curQuestion]
       })

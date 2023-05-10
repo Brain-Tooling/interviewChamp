@@ -1,6 +1,7 @@
 import React,{useState, useEffect} from "react"
 import NavBar from "./../../components/NavBar.tsx"
 import DashboardMainContainer from './containers/DashboardMainContainer.tsx'
+import Cookies from 'js-cookie';
 
 const prepQuestions:object = (questionsFromDB:string[]) => {
   const result:object = {};
@@ -38,7 +39,8 @@ const Dashboard: React.FC = () => {
       setCurQuestion(-1);
     })
 
-    let userID=2;   //TODO: use real userID
+    let userID=Cookies.get('user');   
+    if (!userID) console.log('Warning: unable to find user id, can\'t show responses...')
 
     fetch('qr/getResponses/' + userID + '/' + curType)
     .then(result => result.json())
