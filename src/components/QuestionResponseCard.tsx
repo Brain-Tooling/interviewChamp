@@ -7,7 +7,7 @@ import 'react-quill/dist/quill.bubble.css'
 
 const QuestionResponseCard = (props:QuestionResponseCardProps) => {
   return (
-    <div className='max-w-sm rounded overflow-hidden shadow-lg p-4 grid grid-rows-4 bg-gradient-to-t from-yellow-300 to-yellow-200'>
+    <div className='max-w-sm rounded overflow-hidden shadow-lg p-4 grid grid-rows-4 '>
       <div className='row-span-1 font-bold text-l mb-2'>{props.question}</div>
       <div className='row-span-2 text-sm'>
         <ReactQuill

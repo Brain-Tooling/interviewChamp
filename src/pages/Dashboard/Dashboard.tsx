@@ -50,7 +50,7 @@ const Dashboard: React.FC = () => {
   }, [curType])
 
   return (
-    <div className='bg-gradient-to-b from-green-400 to-green-600 h-screen' >
+    <div className='' >
       <NavBar navBarData={questionTypes} setCurType={setCurType} />
       <DashboardMainContainer
         questions={questions}

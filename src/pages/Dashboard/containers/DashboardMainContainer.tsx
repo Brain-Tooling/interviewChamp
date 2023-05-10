@@ -42,7 +42,7 @@ const DashboardMainContainer = (props:DashboardProps) => {
         </Link>
       </div>
       <div className='p-4 rounded-lg
-         dark:border-gray-700 grid grid-cols-8 gap-4 bg-gradient-to-t from-yellow-300 to-yellow-200'>
+         dark:border-gray-700 grid grid-cols-8 gap-4 '>
         <div className='flex flex-col items-center'>
           <button className="px-3 py-2 text-white bg-green-600 rounded-lg shadow-sm hover:bg-green-400 focus:outline-none focus:ring-1 focus:ring-green-400 focus:ring-offset-1 sm:text-sm"
             onClick={() => {toggleQuestion(false)}}>
