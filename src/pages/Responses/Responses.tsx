@@ -39,7 +39,6 @@ const Responses = () => {
         r.type = filteredType;
         newResponses.push(r);
       }
-      console.log(newResponses);
       setResponses(newResponses);
     })
   },[filteredType])
@@ -49,10 +48,8 @@ const Responses = () => {
     else setFilteredType('');
   }
 
-  console.log('rendering page');
 
   const cards:JSX.Element[] = [];
-  console.log('rendering ' + responses.length + ' responses')
   responses.forEach( (r) => {
     if (filteredType == '' || filteredType == r.type) {
     cards.push(<QuestionResponseCard key={r.id + '|' + Math.random()} 
@@ -62,7 +59,6 @@ const Responses = () => {
                                     />)
     }
   } )
-  console.log('got ' + cards.length + 'cards')
 
   return (
     <div>

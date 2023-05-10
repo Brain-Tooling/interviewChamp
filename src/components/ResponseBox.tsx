@@ -23,24 +23,27 @@ const ResponseBox = (props: ResponseBoxProps) => {
     'link', 'image'
   ]
 
+  const submit = () => {
+    fetch('http://localhost:5001/qr/storeResponse', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify({
+        'user_id': 2, 
+        'question_id':props.curQuestion, 
+        'response_content':props.responses[props.curQuestion]
+      })
+    })
+    .then(result => result.json())
+    //.then(data => tbd)
+  }
+
   const setResponse = (response:string) => {
     if (props.curQuestion != undefined && response != '<p><br></p>') {
       const newResponses = Object.assign(props.responses);
       newResponses[props.curQuestion] = response;
       props.setResponses(newResponses);
-      fetch('http://localhost:5001/qr/storeResponse', {
-        method: 'POST',
-        headers: {
-          'content-type': 'application/json'
-        },
-        body: JSON.stringify({
-          'user_id': 2, 
-          'question_id':props.curQuestion, 
-          'response_content':response
-        })
-      })
-      .then(result => result.json())
-      .then(data => console.log(data))
     }
   }
 
@@ -48,12 +51,16 @@ const ResponseBox = (props: ResponseBoxProps) => {
     <div className='row-span-3'>
       <ReactQuill
         theme='snow'
-        value={props.responses[props.curQuestion]}
+        value={props.responses ? props.responses[props.curQuestion] : ''}
         onChange={setResponse}
-        style={{minHeight: '300px'}}
         modules={modules}
         formats={formats}
-      />      
+      />
+      <div className='flex justify-end top-0'>
+        <button 
+          className='mt-2 px-3 py-2 text-white bg-blue-500 rounded-lg shadow-sm hover:bg-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:ring-offset-1 sm:text-sm'
+          onClick={submit}>Submit</button>      
+      </div>
     </div>
   )
 };

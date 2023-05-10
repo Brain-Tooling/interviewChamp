@@ -27,7 +27,14 @@ const prepQuestions = (questionsFromDB) => {
   for (const o in questionsFromDB) {
     result[questionsFromDB[o].id] = questionsFromDB[o].question_content;
   }
-  console.log(result)
+  return result;
+}
+
+const prepResponses = (responsesFromDB) => {
+  const result = {}
+  for (const o in responsesFromDB) {
+    result[responsesFromDB[o].question_id] = responsesFromDB[o].response_content;
+  }
   return result;
 }
 
@@ -45,14 +52,20 @@ const Dashboard: React.FC = () => {
 
   useEffect( () => {
     const ct:string = curType;
-    console.log('Getting type ' + ct)
     fetch('qr/getQuestions/' + ct)
     .then(response => response.json())
     .then(data => {
       //TODO: update questions
-      console.log(data)
       setQuestions(prepQuestions(data));
       setCurQuestion(-1);
+    })
+
+    let userID=2;   //TODO: use real userID
+
+    fetch('qr/getResponses/' + userID + '/' + curType)
+    .then(result => result.json())
+    .then(data => {
+      setResponses(prepResponses(data));
     })
   }, [curType])
 

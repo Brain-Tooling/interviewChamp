@@ -23,7 +23,7 @@ const DashboardMainContainer = (props:DashboardProps) => {
   }
 
   useEffect(() => {
-    //console.log('cur question has changed', props.curQuestion)
+    //What do we do when current question changes?
   }, [props.curQuestion]);
 
   if (props.curQuestion < 0) {
