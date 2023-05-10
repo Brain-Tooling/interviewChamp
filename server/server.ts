@@ -2,6 +2,7 @@ import express, { Request, Response } from 'express';
 import qrRouter from './routes/qrRouter';
 import loginRouter from './routes/loginRouter';
 import oauthRouter from './routes/oauthRouter';
+import apiRouter from './routes/apiRouter';
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -23,6 +24,9 @@ app.use('/login', loginRouter);
 
 //Handles route to oauthRouter
 app.use('/auth', oauthRouter);
+
+//Handles route to openAI API
+app.use('/api', apiRouter)
 
 app.get('/', (_req: Request, res: Response) => {
   return res.send('Reached endpoint');
