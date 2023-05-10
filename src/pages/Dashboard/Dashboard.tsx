@@ -1,58 +1,51 @@
 import React,{useState, useEffect} from "react"
-import NavBar from "./../../components/NavBar"
-import DashboardMainContainer from './containers/DashboardMainContainer'
+import NavBar from "./../../components/NavBar.tsx"
+import DashboardMainContainer from './containers/DashboardMainContainer.tsx'
+import Cookies from 'js-cookie';
 
-const mockReactQs = {
-  0: 'What are the features of React?',
-  1: 'What is JSX?',
-  2: 'Can web browsers read JSX directly?',
-  3: 'What is the virtual DOM?',
-  4: 'Why use React instead of other frameworks, like Angular?',
-}
-
-const mockReduxQs = {
-  5: 'Redux 1',
-  6: 'Redux 2',
-  7: 'Redux 3',
-}
-
-const mockNodeQs = {
-  8: 'Node 1',
-  9: 'Node 2',
-  10: 'Node 3',
-}
-
-const prepQuestions = (questionsFromDB) => {
-  const result = {};
+const prepQuestions:object = (questionsFromDB:string[]) => {
+  const result:object = {};
   for (const o in questionsFromDB) {
     result[questionsFromDB[o].id] = questionsFromDB[o].question_content;
   }
-  console.log(result)
   return result;
 }
 
-const mockNavBarData = ['React', 'Redux', 'Node']
+const prepResponses:object = (responsesFromDB:string[]) => {
+  const result = {}
+  for (const o in responsesFromDB) {
+    result[responsesFromDB[o].question_id] = responsesFromDB[o].response_content;
+  }
+  return result;
+}
 
+const navBarTypes = ['React', 'Redux', 'Node']
 
 const Dashboard: React.FC = () => {
-  const [questions, setQuestions] = useState(mockReactQs); //TODO: use real props
+  const [questions, setQuestions] = useState(); 
   const [curQuestion, setCurQuestion] = useState(0);
   const [responses, setResponses] = useState({});
-  const [questionTypes, setQuestionTypes] = useState(mockNavBarData);
+  const [questionTypes, setQuestionTypes] = useState(navBarTypes);
   const [curType, setCurType] = useState(questionTypes[0] ? questionTypes[0] : undefined)
 
   
 
   useEffect( () => {
-    let ct:string = curType;
-    console.log('Getting type ' + ct)
-    fetch('qr/getQuestions/' + ct)
+    fetch('qr/getQuestions/' + curType)
     .then(response => response.json())
     .then(data => {
       //TODO: update questions
-      console.log(data)
       setQuestions(prepQuestions(data));
       setCurQuestion(-1);
+    })
+
+    let userID=Cookies.get('user');   
+    if (!userID) console.log('Warning: unable to find user id, can\'t show responses...')
+
+    fetch('qr/getResponses/' + userID + '/' + curType)
+    .then(result => result.json())
+    .then(data => {
+      setResponses(prepResponses(data));
     })
   }, [curType])
 

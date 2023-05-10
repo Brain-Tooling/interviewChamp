@@ -20,3 +20,4 @@ CREATE TABLE IF NOT EXISTS Responses (
     CONSTRAINT unique_user_question_response UNIQUE (user_id, question_id)
 );
 
+ALTER TABLE public.responses ADD CONSTRAINT responses_un UNIQUE (user_id,question_id);

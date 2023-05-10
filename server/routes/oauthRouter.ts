@@ -76,7 +76,7 @@ router.get(
   },
   oauthController.checkEmail,
   (_req: Request, res: Response) => {
-    res.redirect("http://localhost:3000");
+    res.redirect("http://localhost:3000/dashboard");
   }
 );
 
