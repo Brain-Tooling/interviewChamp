@@ -36,7 +36,9 @@ const ResponseBox = (props: ResponseBoxProps) => {
       })
     })
     .then(result => result.json())
-    //.then(data => tbd)
+    .then(data => {
+      props.next(true);
+    })
   }
 
   const setResponse = (response:string) => {

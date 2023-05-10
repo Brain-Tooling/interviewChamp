@@ -10,7 +10,7 @@ const DashboardMainContainer = (props:DashboardProps) => {
   
   const toggleQuestion = (right:boolean) => {
     const dir = right ? 1 : -1;
-    const keys = Object.keys(props.questions).sort();
+    const keys = Object.keys(props.questions).sort((a, b) => parseInt(a) - parseInt(b));
     let idx = keys.findIndex((s) => { return parseInt(s) == parseInt(props.curQuestion + ''); });
     if (idx != undefined) {
       if (idx + dir >= keys.length) idx = -1;
@@ -50,8 +50,8 @@ const DashboardMainContainer = (props:DashboardProps) => {
           </button>
         </div>
         <div className='col-span-6 rounded overflow-hidden shadow-lg p-4 grid grid-rows-4'>
-          <QuestionBox question={props.questions[props.curQuestion]} num={props.curQuestion}/>
-          <ResponseBox responses={props.responses} curQuestion={props.curQuestion} setResponses={props.setResponses}/>
+          <QuestionBox question={props.questions ? props.questions[props.curQuestion]: ''} num={props.curQuestion} answered={props.responses[props.curQuestion] ? true : false}/>
+          <ResponseBox responses={props.responses} curQuestion={props.curQuestion} setResponses={props.setResponses} next={toggleQuestion}/>
         </div>
         <div className='flex flex-col items-center'>
           <button className='px-3 py-2 text-white bg-blue-500 rounded-lg shadow-sm hover:bg-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:ring-offset-1 sm:text-sm'
