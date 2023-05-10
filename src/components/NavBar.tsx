@@ -18,7 +18,7 @@ const NavBar = (props: NavBarProps) => {
   )
   const opts: JSX.Element[] = [];
   navBarOptions.forEach( (o: NavBarItem) => {
-    opts.push(<NavBarOption key={o.name + Math.random()} label={o.name} onClick={() => {if (props && o.name) props.setCurType(o.name)}} />);
+    opts.push(<NavBarOption key={o + Math.random()} label={o} onClick={() => {if (props && o) props.setCurType(o)}} />);
   })
 
   return (
