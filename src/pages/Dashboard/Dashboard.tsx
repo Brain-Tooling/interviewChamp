@@ -27,7 +27,7 @@ const Dashboard: React.FC = () => {
   const [responses, setResponses] = useState({});
   const [questionTypes, setQuestionTypes] = useState(navBarTypes);
   const [curType, setCurType] = useState(questionTypes[0] ? questionTypes[0] : undefined)
-
+  const [aiGeneratedResponse,setAiGeneratedResponse] = useState('');
   
 
   useEffect( () => {
@@ -59,6 +59,8 @@ const Dashboard: React.FC = () => {
         setCurQuestion={setCurQuestion}
         responses={responses}
         setResponses={setResponses}
+        aiGeneratedResponse={aiGeneratedResponse}
+        setAiGeneratedResponse={setAiGeneratedResponse}
          />
     </div>
   )
