@@ -17,9 +17,12 @@ interface ApiController {
 // SELECT * FROM users WHERE usename = ? AND password = ?, [username, password]
 const apiController: ApiController = {
   openai: async (req, res, next) => {
+    console.log('YOOOOO')
     const { question, answer } = req.body; //consider adding question id to end of url instead
-    console.log(question);
+    //console.log(question);
+    
     const prompt = `Review the following answer, ${answer}, and offer suggestions to improve. The question asked was ${question}. The response must be under 100 tokens`;
+    console.log("before response, after prompt")
     const response = await openai.createCompletion({
         model: "text-davinci-003",
         prompt: prompt,

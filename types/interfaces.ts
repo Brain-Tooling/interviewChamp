@@ -38,7 +38,7 @@ export interface ResponseBoxProps {
 
 export interface DashboardProps {
   questions: object,
-  setQuestions: React.Dispatch<React.SetStateAction<object>>,
+  setQuestions: React.Dispatch<React.SetStateAction<{ [key: string]: string }>>,
   curQuestion: number,
   setCurQuestion: React.Dispatch<React.SetStateAction<number>>,
   responses: object,

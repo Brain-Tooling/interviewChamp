@@ -1,6 +1,6 @@
 import React,{useState, useEffect} from "react"
-import NavBar from "./../../components/NavBar.tsx"
-import DashboardMainContainer from './containers/DashboardMainContainer.tsx'
+import NavBar from "./../../components/NavBar"
+import DashboardMainContainer from './containers/DashboardMainContainer'
 
 const mockReactQs = {
   0: 'What are the features of React?',
