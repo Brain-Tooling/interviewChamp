@@ -1,3 +1,5 @@
+export type Callback = (error: Error | null, result?: any) => void;
+
 export interface FormProps {
   inputs: Record<string, string>;
   onSubmit: (event: React.FormEvent<HTMLFormElement>, data: Record<string, string>) => void;
@@ -33,12 +35,13 @@ export interface NavBarProps {
 export interface ResponseBoxProps {
   responses: object,
   curQuestion: number,
-  setResponses: React.Dispatch<React.SetStateAction<object>>
+  setResponses: React.Dispatch<React.SetStateAction<object>>,
+  next: Callback
 }
 
 export interface DashboardProps {
   questions: object,
-  setQuestions: React.Dispatch<React.SetStateAction<object>>,
+  setQuestions: React.Dispatch<React.SetStateAction<{ [key: string]: string }>>,
   curQuestion: number,
   setCurQuestion: React.Dispatch<React.SetStateAction<number>>,
   responses: object,
@@ -52,4 +55,10 @@ export interface QuestionResponseCardProps {
 }
 export interface SignUpProps {
   setLoginValues: (values: SignUpFormValues) => void;
+}
+
+export interface QuestionBoxProps {
+  question: string,
+  num: number,
+  answered: boolean
 }

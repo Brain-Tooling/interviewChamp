@@ -27,7 +27,7 @@ const oauthController: OAuthController = {
       const email = res.locals.email;
       const params = [email];
       let text = `SELECT * FROM Users WHERE username = $1`;
-      let result = await query(text, params);
+      const result = await query(text, params);
       console.log('THIS IS RESULT --------->', result)
       if (result.rows[0]) {
         res.locals.user = result.rows[0].id;

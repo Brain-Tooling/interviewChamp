@@ -50,7 +50,6 @@ const loginController: LoginController = {
       const password = credentials.password;
       const params = [username, password];
       const result = await query(text, params);
-      console.log("THIS IS RESULT --------->", result.rows[0]);
       if (result.rows.length > 0) {
         res.locals.newUser = result.rows[0].id;
         console.log("THIS IS NEWUSER", res.locals.newUser);

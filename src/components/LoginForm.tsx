@@ -17,19 +17,21 @@ const LoginForm: React.FC = () => {
     // do something with username and password here.
     try {
       console.log('Login Form data:', formValues);
-      const response = await fetch(`http://localhost:5001/login`, {
+      const response = await fetch('http://localhost:5001/login/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username: formValues.username, password: formValues.password }),
       });
       const data = await response.json();
-      console.log(data);
-      if (data.exist) navigate('/dashboard');
-      else navigate('/signup')
+      console.log('THIS IS DATA', data);
+      if (data.exist === true) {
+        document.cookie = `user=${data.user}`
+        navigate('/dashboard');
+      }
+      else { alert('Incorrect login credentials')}
     } catch (error) {
       console.log(error);
     }
-    
   }
 
   const googleSubmit = async () => {
