@@ -14,6 +14,9 @@ interface Credentials {
 
 //handle password and username authentication with database
 // SELECT * FROM users WHERE usename = ? AND password = ?, [username, password]
+/** 
+ * @description checks if the username and password exists in the database; returns to next middleware function if its found in the database
+*/
 const loginController: LoginController = {
   checkLogin: async (req, res, next) => {
     try {
