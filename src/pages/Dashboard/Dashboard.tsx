@@ -50,7 +50,7 @@ const Dashboard: React.FC = () => {
   }, [curType])
 
   return (
-    <div>
+    <div className='' >
       <NavBar navBarData={questionTypes} setCurType={setCurType} />
       <DashboardMainContainer
         questions={questions}

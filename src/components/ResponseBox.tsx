@@ -93,7 +93,7 @@ const ResponseBox = (props: ResponseBoxProps) => {
 
   const aiDiv = 
     props.aiGeneratedResponse ?
-    <div>
+    <div className=''>
       <button onClick={() => {setResponse(props.aiGeneratedResponse)}}
         className='mt-2 mr-2 px-1 py-1 text-white bg-slate-500 rounded-lg shadow-sm hover:bg-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:ring-offset-1 sm:text-sm>'
         title='Use this answer'>
@@ -110,22 +110,23 @@ const ResponseBox = (props: ResponseBoxProps) => {
     ''
 
   return (
-    <div className='row-span-3'>
+    <div className='row-span-3 '>
       <ReactQuill
         theme='snow'
         value={props.responses ? props.responses[props.curQuestion] : ''}
         onChange={setResponse}
         modules={modules}
         formats={formats}
+        
       />
       <div className='flex justify-end top-0'>
         {loading ? <img src={loadingIcon} width='48px'></img> : <div />}
-        <button className='mt-2 ml-2 mr-2 px-3 py-2 text-white bg-slate-500 rounded-lg shadow-sm hover:bg-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:ring-offset-1 sm:text-sm'
+        <button className='mt-2 ml-2 mr-2 px-3 py-2 text-white bg-slate-500 rounded-lg shadow-sm hover:bg-green-500 focus:outline-none focus:ring-1 focus:ring-green-500 focus:ring-offset-1 sm:text-sm'
           onClick={refineResponse}>
           Refine
         </button>
         <button 
-          className='mt-2 px-3 py-2 text-white bg-blue-500 rounded-lg shadow-sm hover:bg-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:ring-offset-1 sm:text-sm'
+          className='mt-2 px-3 py-2 text-white bg-green-700 rounded-lg shadow-sm hover:bg-green-500 focus:outline-none focus:ring-1 focus:ring-green-500 focus:ring-offset-1 sm:text-sm'
           onClick={submit}>Submit</button>      
       </div>
       {aiDiv}

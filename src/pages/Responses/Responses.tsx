@@ -50,10 +50,10 @@ const Responses = () => {
   return (
     <div>
       <NavBar navBarData={questionTypes} setCurType={handleNavClick}/>
-      <div className="p-4 sm:ml-64">
+      <div className="p-4 sm:ml-64 " >
         <div className='flex justify-end'>
           <Link to="/dashboard">
-            <button className="px-3 py-2 text-white bg-gray-500 rounded-lg shadow-sm hover:bg-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:ring-offset-1 sm:text-sm"
+            <button className="px-3 py-2 text-white bg-gray-500 rounded-lg shadow-sm hover:bg-green-500 focus:outline-none focus:ring-1 focus:ring-green-500 focus:ring-offset-1 sm:text-sm"
             >
             Dashboard
             </button>

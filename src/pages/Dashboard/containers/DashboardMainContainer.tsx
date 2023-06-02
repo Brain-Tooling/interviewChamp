@@ -9,7 +9,6 @@ import { Link } from 'react-router-dom';
 const DashboardMainContainer = (props:DashboardProps) => {
   
   const toggleQuestion = (right:boolean) => {
-    props.setAiGeneratedResponse('');
     const dir = right ? 1 : -1;
     const keys = Object.keys(props.questions).sort((a, b) => parseInt(a) - parseInt(b));
     let idx = keys.findIndex((s) => { return parseInt(s) == parseInt(props.curQuestion + ''); });
@@ -33,19 +32,19 @@ const DashboardMainContainer = (props:DashboardProps) => {
   }
 
   return (
-    <div className="p-4 sm:ml-64">
+    <div className="p-4 sm:ml-64 ">
       <div className='flex justify-end'>
         <Link to="/myresponses">
-          <button className="px-3 py-2 text-white bg-gray-500 rounded-lg shadow-sm hover:bg-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:ring-offset-1 sm:text-sm"
+          <button className="px-3 py-2 text-white bg-gray-500 rounded-lg shadow-sm hover:bg-green-400 focus:outline-none focus:ring-1 focus:ring-green-400 focus:ring-offset-1 sm:text-sm"
            >
            Responses
           </button>
         </Link>
       </div>
       <div className='p-4 rounded-lg
-         dark:border-gray-700 grid grid-cols-8 gap-4'>
+         dark:border-gray-700 grid grid-cols-8 gap-4 '>
         <div className='flex flex-col items-center'>
-          <button className="px-3 py-2 text-white bg-blue-500 rounded-lg shadow-sm hover:bg-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:ring-offset-1 sm:text-sm"
+          <button className="px-3 py-2 text-white bg-green-600 rounded-lg shadow-sm hover:bg-green-400 focus:outline-none focus:ring-1 focus:ring-green-400 focus:ring-offset-1 sm:text-sm"
             onClick={() => {toggleQuestion(false)}}>
             <img src={LeftArrow} width='8em'></img>
           </button>
@@ -60,7 +59,7 @@ const DashboardMainContainer = (props:DashboardProps) => {
                       />
         </div>
         <div className='flex flex-col items-center'>
-          <button className='px-3 py-2 text-white bg-blue-500 rounded-lg shadow-sm hover:bg-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:ring-offset-1 sm:text-sm'
+          <button className='px-3 py-2 text-white bg-green-600 rounded-lg shadow-sm hover:bg-green-400 focus:outline-none focus:ring-1 focus:ring-green-400 focus:ring-offset-1 sm:text-sm'
             onClick={() => {toggleQuestion(true)}}>
             <img src={RightArrow} width='8em'></img>
           </button>
