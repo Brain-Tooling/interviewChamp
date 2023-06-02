@@ -34,7 +34,7 @@ const SignUpForm: React.FC = () => {
       const data = await response.json();
       console.log(data);
       if (response.status === 200) {
-        document.cookie = `user=${data.newUser}`
+        document.cookie = `user=${data}`
         navigate('/dashboard');
       }  
     } catch (error) {
