@@ -1,15 +1,11 @@
 import React from 'react';
 import { FormProps } from '../../types/interfaces'
 
-// Reusable Form component
-// create React functional component that takes in type FormProps
-// FormProps interface has properties - inputs and onSubmit
+
 const Form: React.FC<FormProps> = ({ inputs, onSubmit }) => {
 
-  // handle for submission
-  // takes in event of type React.FormEvent which is a function that takes an HTMLFormElement
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    // prevent re-render
+    
     event.preventDefault();
     onSubmit(event, inputs);
   }

@@ -23,13 +23,13 @@ export interface LogInProps {
   setLoginValues: (values: LogInFormValues) => void;
 }
 export interface NavBarItem {
-  id: number,
-  name: string
+  id: number;
+  name: string;
 }
 
 export interface NavBarProps {
-  navBarData: NavBarItem[]  //TODO: array
-  setCurType?: void
+  navBarData: NavBarItem[];  //TODO: array
+  setCurType?: (o: NavBarItem) => void;
 }
 
 export interface ResponseBoxProps {

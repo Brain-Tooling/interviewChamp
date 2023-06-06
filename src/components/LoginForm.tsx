@@ -28,7 +28,7 @@ const LoginForm: React.FC = () => {
         document.cookie = `user=${data.user}`
         navigate('/dashboard');
       }
-      else { alert('Incorrect login credentials')}
+      else {alert('Incorrect login credentials')}
     } catch (error) {
       console.log(error);
     }
